@@ -12,9 +12,7 @@ class Pokemon
         @@all
     end
 
-    private
 
-    def use_the_bathroom
-        puts "I need to use the bathroom"
-    end
+
+
 end

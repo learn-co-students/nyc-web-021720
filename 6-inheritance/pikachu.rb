@@ -20,7 +20,7 @@ class Pikachu < Pokemon
         puts "Hi I'm Pikachu, here is info about me, my name is #{self.name}, I have #{self.number_of_stripes} number of stripes"
     end
 
-        private
+    private
 
     def use_the_bathroom
         puts "I need to use the bathroom"
