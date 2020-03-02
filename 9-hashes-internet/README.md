@@ -19,5 +19,3 @@
     2. If using Ruby you can use the 'rest-client' gem to make requests 
     3. turn that request into data formatted in a way that we can work with 
       - To do this you can use Ruby's 'json' library 
-
-

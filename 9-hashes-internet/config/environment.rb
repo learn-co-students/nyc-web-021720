@@ -8,7 +8,5 @@ ActiveRecord::Base.establish_connection(
 
 ActiveRecord::Base.logger = Logger.new(STDOUT)
 
-# require_all '../app'
-require_relative '../app/models/pokemon/trainer'
-require_relative '../app/models/pokemon/pokemon'
-# require_relative './pokemon/pokemon'
+require_all 'app'
+
