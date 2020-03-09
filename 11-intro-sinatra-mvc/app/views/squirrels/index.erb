@@ -1,0 +1,11 @@
+<h1>SQUIRREL INDEX PAGE</h1>
+
+<ol>
+  <% @squirrels.each do |squirrel| %>
+    <li>
+      <a href="squirrels/<%= squirrel.id %>">
+        <%= squirrel.name %>
+      </a>
+    </li>
+  <% end %>
+</ol>
