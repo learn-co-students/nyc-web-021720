@@ -1,0 +1,10 @@
+<h1>Squirrel Edit</h1>
+
+<form method="POST" action="/squirrels/<%=@squirrel.id%>">
+<input type="hidden" name="_method" value="PATCH">
+  <label for="name">Name:</label><br>
+  <input type="text" id="fname" name="squirrel[name]" value="<%=@squirrel.name%>" ><br>
+  <label for="weight">Weight:</label><br>
+  <input type="number" id="lname" name="squirrel[weight]" value="<%=@squirrel.weight%>" ><br><br>
+  <input type="submit" value="Submit">
+</form> 

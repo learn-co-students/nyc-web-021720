@@ -1,0 +1,10 @@
+<h1> HERES MY DIGIMON</h1>
+
+
+
+
+
+<% @digimons.each do |mon| %>
+<a href="/digimons/<%= mon.id %>"> <%= mon.name %> </a> <br>
+
+<% end %>
