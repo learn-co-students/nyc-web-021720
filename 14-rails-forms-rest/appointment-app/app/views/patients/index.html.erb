@@ -2,6 +2,6 @@
 
 <ul>
   <% @patients.each do |patient| %>
-    <li><%= patient.name %></li>
+    <li><%= link_to patient.name, patient_path(patient.id) %></li>
   <% end %>
 </ul>

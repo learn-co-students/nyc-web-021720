@@ -22,7 +22,8 @@ class PatientsController < ApplicationController
   end
 
   def update
-    patient = Patient.find(params[:id]).update(condition: params[:condition])
+    patient = Patient.find(params[:id])
+    patient.update(condition: params[:condition])
     # redirect_to patients_path go to index
     redirect_to patient_path(patient.id) # go to show
   end
