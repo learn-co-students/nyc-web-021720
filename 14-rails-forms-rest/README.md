@@ -6,15 +6,25 @@
 You work at a clinic and have been tracking appointments between doctors and patients on paper for over 50 years. The rest of the office takes pride in it, but it is error-prone. Lucky for you, you and a few of your coworkers already know how to make web apps! You team up to create an application with the following app requirements:
 
 * View all doctors
+  - GET `/doctors`
 * View all patients
+  - GET `/patients`
 * View a patient with their appointments
+  - GET `/patients/:id`
 * Create a new doctor with a name and specialty
+  - GET `/doctors/new`
 * Create a new patient with a name and a condition
+  - GET `/patients/new`
 * Create a new appointment between a patient and a doctor with a time and date
+  - GET `/appointments/new` # show a form
 * Edit a doctor's specialty
+  - GET `/doctors/:id/edit`
 * Edit a patient's condition
+  - GET `/patients/:id/edit`
 * Edit the doctor for an appointment
+  - GET `/appointment/:id/edit`
 * Remove (or cancel) an appointment
+  - ???
 
 ## **Discussion questions:** Doctor's office app development plan
 
@@ -26,16 +36,48 @@ In your table groups, set up the foundations for the system that we'll be buildi
   * their relationships
   * their attributes and their attributes' data types
   * their foreign-keys (if applicable)
+  * Domain model:
+    - Doctor (model)
+      - relationships
+        - has many appointments
+        - has many patients through appointments
+      - attributes
+        - name:string
+        - specialty:string
+    - Patient (model)
+      - relationships
+        - has many appointments
+        - has many doctors through appointments
+      - attributes
+        - name:string
+        - condition:string
+    - Appointment (model)
+      - relationships
+        - belongs to doctor
+        - belongs to patient
+      - attributes
+        - patient_id:integer
+        - doctor_id:integer
+        - appointment_time:datetime
 * Type out the commands you'll use to generate the application, models, and schema below:
-  * Application: `rails ___ _________`
+  * Application: `rails new appointment-app`
   * Model: `rails _ _____ ______`
-  * Schema: `rails __:_______`
+    - `rails g model Doctor name:string specialty:string`
+    - `rails g model Patient name:string condition:string`
+    - `rails g model Appointment patient_id:integer doctor_id:integer appointment_time:datetime`
+  * Schema: `rails db:migrate`
 * Note changes you need to make to your migrations, if any
 * Note changes you'll need to make to your models, if any
 * Type out the command you'll use to test that your database is set up properly:
-  * `rails _` or `rails _______`
+  * `rails c` or `rails console`
+* Create seeds
 * Type out the HTTP verb and routes that you think your application will need:
   * (ex. `get '/example', to: controller#action`)
+  * HTTP Verbs:
+    * GET,
+    * POST,
+    * PATCH,
+    * DELETE
 * Type out the views/templates that you think your application will need:
   * (ex. `views/examples/index.html.erb`)
 * For each view that will need to be a form, type out what information will need to be included on that form:
