@@ -1,0 +1,12 @@
+<h1><%= @patient.name %></h1>
+<p><%= @patient.condition %></p>
+<%= link_to "Edit", edit_patient_path(@patient) %>
+
+<ol>
+  <% @patient.appointments.each do |appt| %>
+    <li>
+      <strong><%= appt.doctor.name %></strong>: <%= appt.appointment_time %>
+      <%= button_to "Delete", appointment_path(appt), method: :delete %>
+    </li>
+  <% end %>
+</ol>

@@ -19,20 +19,22 @@ You work at a clinic and have been tracking appointments between doctors and pat
   - PATCH `/appointments/:id`,    `AppointmentsController#update`
 
 ### Done
+
 * View all doctors
   - GET `/doctors`,         `DoctorsController#index`
 * View all patients
   - GET `/patients`,        `PatientsController#index`
 * View a patient's name and condition with a list of their appointments (show edit and remove options here)
   - GET `/patients/:id`,    `PatientsController#show`
-* Create a new patient with a name and a condition (form)
-  - GET `/patients/new`,    `PatientsController#new`
-  - POST `/patients`,       `PatientsController#create`
 * Edit a patient's condition (form)
   - GET `/patients/:id/edit`,  `PatientsController#edit`
   - PATCH `/patients/:id`,     `PatientsController#update`
+* Create a new patient with a name and a condition (form)
+  - GET `/patients/new`,    `PatientsController#new`
+  - POST `/patients`,       `PatientsController#create`
 * Remove (or cancel) an appointment (form?)
   - DELETE `/appointments/:id`,   `AppointmentsController#destroy`
+
 
 ## **Discussion questions:** Doctor's office app development plan
 
@@ -73,8 +75,8 @@ In your table groups, set up the foundations for the system that we'll be buildi
     - `rails g model Doctor name:string specialty:string`
     - `rails g model Patient name:string condition:string`
     - `rails g model Appointment patient_id:integer doctor_id:integer appointment_time:datetime`
+  * Note changes you need to make to your migrations, if any
   * Schema: `rails db:migrate`
-* Note changes you need to make to your migrations, if any
 * Note changes you'll need to make to your models, if any
 * Type out the command you'll use to test that your database is set up properly:
   * `rails c` or `rails console`
