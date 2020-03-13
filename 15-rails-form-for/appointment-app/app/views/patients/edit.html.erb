@@ -1,0 +1,8 @@
+<h1>Edit patient</h1>
+
+<%= form_tag patient_path(@patient.id), method: :patch do %>
+  <%= label_tag :condition %>
+  <%= text_field_tag :condition, @patient.condition %>
+
+  <%= submit_tag "Update condition" %>
+<% end %>
