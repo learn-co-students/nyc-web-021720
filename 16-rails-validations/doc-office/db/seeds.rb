@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# ? OLD SEED DATA
+# ? OLD SEED DATA (done with Tim)
 # d1 = Doctor.create(name: "Joseph", specialty: "blankets")
 # d2 = Doctor.create(name: "Matthew", specialty: "yellow hats")
 

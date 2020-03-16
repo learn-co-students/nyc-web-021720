@@ -12,9 +12,16 @@ class PatientsController < ApplicationController
   end
 
   def create
-    patient = Patient.create(patient_params)
+    @patient = Patient.create(patient_params)
+    # @patient = Patient.new(patient_params)
 
-    redirect_to patient_path(patient)
+    # if @patient.save
+    if @patient.valid?
+      redirect_to patient_path(@patient)
+    else
+      flash[:errors] = @patient.errors.full_messages
+      redirect_to new_patient_path  
+    end 
   end
 
   def edit
@@ -23,9 +30,14 @@ class PatientsController < ApplicationController
 
   def update
     patient = Patient.find(params[:id])
-    patient.update(patient_params)
 
-    redirect_to patient_path(patient)
+    if patient.update(patient_params)
+      redirect_to patient_path(patient)
+    else 
+      flash[:errors] = patient.errors.full_messages
+      redirect_to edit_patient_path(patient)  
+    end 
+
   end
 
   private

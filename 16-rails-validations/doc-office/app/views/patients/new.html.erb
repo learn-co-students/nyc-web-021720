@@ -1,5 +1,13 @@
 <h1>New patient</h1>
 
+<% if flash[:errors] %>
+  <ul> 
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @patient do |patient_form| %>
   <%= patient_form.label :name %>
   <%= patient_form.text_field :name %>
