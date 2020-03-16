@@ -1,0 +1,16 @@
+<h1>Edit patient: <%= @patient.name %></h1>
+
+<%= form_for @patient do |patient_form| %>
+  <%= patient_form.label :name %>
+  <%= patient_form.text_field :name %>
+
+  <%= patient_form.label :age %>
+  <%= patient_form.text_field :age %>
+
+  <%#= label_tag :condition %>
+  <%= patient_form.label :img_url %>
+  <%#= text_field_tag :condition, @patient.condition %>
+  <%= patient_form.text_field :img_url %>
+
+  <%= patient_form.submit "Update condition" %>
+<% end %>
