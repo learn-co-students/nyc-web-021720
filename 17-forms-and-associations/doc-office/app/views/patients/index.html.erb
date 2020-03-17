@@ -5,6 +5,7 @@
     <div class='index-tile'>
       <h2><%= link_to patient.name, patient_path(patient) %></h2>
       <img class='index-img' src="<%= patient.img_url %>" alt="<%= patient.name%>">
+      <%= button_to "Delete", patient_path(patient), method: :delete %>
     </div>
   <% end %>
 </div>
