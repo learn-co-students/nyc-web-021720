@@ -1,0 +1,10 @@
+<h1>All patients</h1>
+
+<div class='index-container'>
+  <% @patients.each do |patient| %>
+    <div class='index-tile'>
+      <h2><%= link_to patient.name, patient_path(patient) %></h2>
+      <img class='index-img' src="<%= patient.img_url %>" alt="<%= patient.name%>">
+    </div>
+  <% end %>
+</div>

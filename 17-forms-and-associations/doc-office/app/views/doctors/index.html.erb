@@ -1,0 +1,12 @@
+<h1>All doctors</h1>
+
+<div class='index-container'>
+  <% @doctors.each do |doctor| %>
+    <div class='index-tile'>
+      <h2> <%= doctor.name %> </h2>
+      <p><b>Specialty:</b> <%= doctor.specialty %></p>
+      <p><b>Experience:</b> <%= doctor.experience %> years</p>
+      <img class='index-img'src="<%= doctor.img_url %>" alt="<%= doctor.name %>">
+    </div>
+  <% end %>
+</div>
