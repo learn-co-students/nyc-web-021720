@@ -1,4 +1,8 @@
 <div class="container">
+  <% if session[:cookie_counter]  <= 0 %>
+    <iframe width="966" height="543" src="https://www.youtube.com/embed/QiVvwaZqn4M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <% else %>
+    <h1>You have <%= session[:cookie_counter] %> Views until we demand money</h1>  
 
   <h1><%= @patient.name %></h1>
   <p><b>age:</b><%= @patient.age %></p>
@@ -17,4 +21,5 @@
       </li>
     <% end %>
   </ol>
+  <% end  %>
 </div>
