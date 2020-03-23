@@ -1,0 +1,20 @@
+<div class="container">
+
+  <h1><%= @patient.name %></h1>
+  <p><b>age:</b><%= @patient.age %></p>
+  <marquee scrollamount="20">
+    <img class='show-img' src="<%= @patient.img_url %>" alt="<%= @patient.name %>">
+  </marquee>
+
+  <%= link_to "Edit", edit_patient_path(@patient) %>
+  <h3>My Appointments</h3>
+  <br>
+  <ol>
+    <% @patient.appointments.each do |appt| %>
+      <li>
+        <strong><%= appt.doctor.name %></strong>: <%= appt.appointment_time %>
+        <%= button_to "Delete", appointment_path(appt), method: :delete %>
+      </li>
+    <% end %>
+  </ol>
+</div>
