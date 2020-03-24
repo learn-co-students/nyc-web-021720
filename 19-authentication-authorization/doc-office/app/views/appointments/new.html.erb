@@ -4,9 +4,6 @@
     
     <%= f.label :doctor_id %>
     <%= f.collection_select :doctor_id, @doctors, :id, :name %>
-
-    <%= f.label :patient_id %>
-    <%= f.collection_select :patient_id, @patients, :id, :name %>
     
     <%= f.submit %>
   <% end %>

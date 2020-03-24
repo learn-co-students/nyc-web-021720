@@ -1,7 +1,7 @@
 <% if flash[:errors] %>
   <ul> 
     <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
+      <li style="color: red;"><%= error %></li>
     <% end %>
   </ul>
 <% end %>
@@ -13,10 +13,11 @@
   <%= patient_form.label :age %>
   <%= patient_form.text_field :age %>
 
-  <%#= label_tag :condition %>
   <%= patient_form.label :img_url %>
-  <%#= text_field_tag :condition, @patient.condition %>
   <%= patient_form.text_field :img_url %>
 
-  <%= patient_form.submit "Update condition" %>
+  <%= patient_form.label :password %>
+  <%= patient_form.password_field :password %>
+
+  <%= patient_form.submit %>
 <% end %>

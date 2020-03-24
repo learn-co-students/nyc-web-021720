@@ -4,9 +4,10 @@
     
     <%= f.label :doctor_id %>
     <%= f.collection_select :doctor_id, @doctors, :id, :name %>
-
+    <br>
     <%= f.label :patient_id %>
-    <%= f.collection_select :patient_id, @patients, :id, :name %>
+    <%# f.collection_select :patient_id, @patients, :id, :name %>
+    <%= f.datetime_select :patient_id, :ampm => true, :minute_step => 15 %>
     
     <%= f.submit %>
   <% end %>

@@ -6,25 +6,15 @@ class PatientsController < ApplicationController
   end
 
   def show
-    # @patient = Patient.find(params[:id]) 
-    
-    # counter key
-    # increment counter key
-    # conditional 
-    # counter hits limit display different view
+    if @current_patient.id == params[:id].to_i
+      session[:cookie_counter] ||= session[:cookie_counter] = 1000
+      current_count = session[:cookie_counter].to_i
+      session[:cookie_counter] = current_count -= 1
 
-    # if cookies[:cookie_counter]
-    #   cookies[:cookie_counter] -= 1
-    # else 
-    #   cookies[:cookie_counter] = 3
-    # end 
-
-    session[:cookie_counter] ||= session[:cookie_counter] = 3
-    current_count = session[:cookie_counter].to_i
-    
-
-    session[:cookie_counter] = current_count -= 1
-
+      render :show 
+    else
+      redirect_to patients_path  
+    end 
   end
 
   def new
@@ -33,10 +23,9 @@ class PatientsController < ApplicationController
 
   def create
     @patient = Patient.create(patient_params)
-    # @patient = Patient.new(patient_params)
-
-    # if @patient.save
+  
     if @patient.valid?
+      session[:patient_id] = @patient.id
       redirect_to patient_path(@patient)
     else
       flash[:errors] = @patient.errors.full_messages
@@ -70,7 +59,7 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit(:name, :condition)
+    params.require(:patient).permit(:name, :condition, :img_url, :age, :password)
   end
 
   def find_patient

@@ -39,20 +39,20 @@ doctors = [
 ]
 
 patients = [
-  {name: "Andrew Casarsa", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTFAJGADR-cf894db2cc40-512", age: rand(100..200)},
-  {name: "Abubaker.Noorzi", img_url: "https://ca.slack-edge.com/T02MD9XTF-USKPQMFV1-ee03b5fb67db-512", age: rand(100..200)},
-  {name: "Brian Desplantes", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTE1462M8-1e7847284ba9-512", age: rand(100..200)},
-  {name: "Brianna Dixon", img_url: "https://ca.slack-edge.com/T02MD9XTF-UF63J2E82-6cb1e0456369-512", age: rand(100..200)},
-  {name: "Chett Tiller (he/him)", img_url: "https://ca.slack-edge.com/T02MD9XTF-UD88L20GM-06e73e1b25fc-512", age: rand(100..200)},
-  {name: "Gabbie Piraino", img_url: "https://ca.slack-edge.com/T02MD9XTF-UEACERAQZ-a4abcb7c233f-512", age: rand(100..200)},
-  {name: "Jake Pino", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTFAJKN3D-4678bf4651a3-512", age: rand(100..200)},
-  {name: "Jeffrey Musselman", img_url: "https://ca.slack-edge.com/T02MD9XTF-UMC62QVAM-019eb6bf04b1-512", age: rand(100..200)},
-  {name: "Joseph Guzzardo", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTSAY8SBW-e765b6686b19-512", age: rand(100..200)},
-  {name: "Joseph Chavez", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTV12QFAA-5e0f67a69902-512", age: rand(100..200)},
-  {name: "Nick Echevarria", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTFAJNSG3-gf02695f8e76-512", age: rand(100..200)},
+  {name: "Andrew Casarsa", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTFAJGADR-cf894db2cc40-512", age: rand(100..200), password: 'pass123'},
+  {name: "Abubaker.Noorzi", img_url: "https://ca.slack-edge.com/T02MD9XTF-USKPQMFV1-ee03b5fb67db-512", age: rand(100..200), password: 'pass123'},
+  {name: "Brian Desplantes", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTE1462M8-1e7847284ba9-512", age: rand(100..200), password: 'pass123'},
+  {name: "Brianna Dixon", img_url: "https://ca.slack-edge.com/T02MD9XTF-UF63J2E82-6cb1e0456369-512", age: rand(100..200), password: 'pass123'},
+  {name: "Chett Tiller (he/him)", img_url: "https://ca.slack-edge.com/T02MD9XTF-UD88L20GM-06e73e1b25fc-512", age: rand(100..200), password: 'pass123'},
+  {name: "Gabbie Piraino", img_url: "https://ca.slack-edge.com/T02MD9XTF-UEACERAQZ-a4abcb7c233f-512", age: rand(100..200), password: 'pass123'},
+  {name: "Jake Pino", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTFAJKN3D-4678bf4651a3-512", age: rand(100..200), password: 'pass123'},
+  {name: "Jeffrey Musselman", img_url: "https://ca.slack-edge.com/T02MD9XTF-UMC62QVAM-019eb6bf04b1-512", age: rand(100..200), password: 'pass123'},
+  {name: "Joseph Guzzardo", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTSAY8SBW-e765b6686b19-512", age: rand(100..200), password: 'pass123'},
+  {name: "Joseph Chavez", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTV12QFAA-5e0f67a69902-512", age: rand(100..200), password: 'pass123'},
+  {name: "Nick Echevarria", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTFAJNSG3-gf02695f8e76-512", age: rand(100..200), password: 'pass123'},
   {name: "Samanthaponce5", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTE14D134-e7b461359dbd-512", age: rand(100..200)},
-  {name: "Tim Campbell (he/him)", img_url: "https://ca.slack-edge.com/T02MD9XTF-U5W0HE7M3-bb8cf38d782b-512", age: rand(100..200)},
-  {name: "Zach Brown", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTUL96JBZ-a1aee35da883-512", age: rand(100..200)},
+  {name: "Tim Campbell (he/him)", img_url: "https://ca.slack-edge.com/T02MD9XTF-U5W0HE7M3-bb8cf38d782b-512", age: rand(100..200), password: 'pass123'},
+  {name: "Zach Brown", img_url: "https://ca.slack-edge.com/T02MD9XTF-UTUL96JBZ-a1aee35da883-512", age: rand(100..200), password: 'pass123'},
   {name: "Gregory Dwyer", img_url: "https://ca.slack-edge.com/T02MD9XTF-U8H2RA3C1-643c8ce562ef-512"}
 ]
 

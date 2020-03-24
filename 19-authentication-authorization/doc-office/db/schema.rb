@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_13_140940) do
+ActiveRecord::Schema.define(version: 2020_03_24_190118) do
 
   create_table "appointments", force: :cascade do |t|
     t.integer "patient_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2020_03_13_140940) do
     t.string "img_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
 end

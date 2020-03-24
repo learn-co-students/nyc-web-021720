@@ -1,0 +1,9 @@
+<%= form_for :session, url: login_path do |patient_form| %>
+  <%= patient_form.label :name %>
+  <%= patient_form.text_field :name %>
+
+  <%= patient_form.label :password %>
+  <%= patient_form.password_field :password %>
+
+  <%= patient_form.submit "LOGIN!!"%>
+<% end %>

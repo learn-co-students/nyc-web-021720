@@ -7,7 +7,7 @@ Rails Authentication & Authorization
 - Understand, theoretically, how authentication and authorization work
   - Understand the _difference_ between authentication and authorization and how they fit under the umbrella topic _auth_
 - Discuss different encryption and hashing schemes, and `bcrypt` specifically
-  - Do we want to ever store plaintext user passwords?(NO)
+  - Do we want to ever store plaintext user passwords?
 - Augment a user model in rails using `bcrypt`, `password_digest`, and `has_secure_password`
 - Expose this information in a sample rails app
 - Go over sessions, cookies, and implement sign up, log in, and log out
@@ -43,10 +43,10 @@ Rails Authentication & Authorization
 
 
 #### Authorization
-- can't create a movie unless logged in
-- Can't delete a movie unless logged in
-- Create a Review without having to select yourself
-- Can only see the logged_in users show page
+- can't create an appointment unless logged in
+- Create an Appointment without having to select yourself
+- Can't delete a patient/appointment unless logged in
+- Can only see the logged_in patients show page
 
 
 ### How does auth work in theory?

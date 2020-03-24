@@ -13,6 +13,19 @@
     <div class="nav">
       <img class='logo' src="https://georgelockhartdotcom.files.wordpress.com/2013/01/whats-up-doc.png" alt="logo">
     </div>
+
+      <ul>
+        <li><%= link_to 'Patient Home', patients_path %></li>
+        <li><%= link_to 'Doctor Home', doctors_path %></li>
+        <li><%= link_to 'New Appointment', new_Appointment_path %></li>
+        <% if @logged_in_user %>
+          <li class='right'> <%= link_to "Logout", eliminate_path, method: :delete %> </li>
+          <li class='right'>Welcome, <%= @logged_in_user.name %>!</li>
+        <% else %>
+          <li class='right'><%= link_to 'Sign-up', new_user_path %></li>
+          <li class='right'><%= link_to 'Login', login_path %></li>
+        <% end %>
+      </ul>
     <%= yield %>
   </body>
 </html>
