@@ -15,6 +15,8 @@
 - [ ] Use JS to add, remove, and edit DOM nodes
 
 ### The Document Object Model Overview
+> The DOM is the browser's programmatic representation of the web page (the HTML). This means we can manipulate the DOM using JavaScript to change what we see on the web page.
+
 - What is the DOM?
   - The DOM (Document Object Model) is a representation of an HTML document as a **tree** (more on this later) that can be manipulated with JavaScript
   - Javascript is a language created to manipulate the DOM
@@ -74,19 +76,33 @@
 - READ:
 
 - `document.getElementById`
+  - returns the first element with that id
+  - can only be called on document becuase id should be unique on the page
 
+  - `document.getElementById('image-container')`
   
 - `node.getElementsByTagName`
+  - search the DOM by tag name
+  - returns array like thing of objects
 
+  - `ul.getElementsByTagName('li')`
 
 - `node.getElementsByClassName`
+  - search the DOM by class name
+  - returns an array like thing of objects
 
+  - `ul.getElementsByClassName('movie')`
 
 - `node.querySelector`
+  - returns the first element that satisfies the search criteria
+
+  - `document.querySelector('.movie')`
 
   
 - `node.querySelectorAll`
+  - returns all the elements that satisfies the search criteria
 
+  - `document.querySelectorAll('.movie')`
 
   - We can also combine selectors for more specificity:
     - We need a space between `#parent .child`
@@ -95,15 +111,26 @@
 
 ---
 
-- UDATE:
+- UPDATE:
 
+<!-- https://i.ytimg.com/vi/qYKrqd9VacY/maxresdefault.jpg -->
 
+// get the image
+// update something about the image to change the picture it displays
+
+```javascript
+let img = document.getElementsByTagName('img')[0]
+img.src = "https://i.ytimg.com/vi/qYKrqd9VacY/maxresdefault.jpg"
+```
 
 ---
 
 - DELETE:
 
-
+```javascript
+let ul = document.getElementsByTagName('ul')[0]
+ul.remove()
+```
 
 ---
 
