@@ -31,6 +31,8 @@ const movies = [
   }
 ]
 
+console.log("index js")
+
 // add Back to the Future to our DOM
 
 // √create an li for the new movie
