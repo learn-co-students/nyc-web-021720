@@ -42,12 +42,6 @@ const movies = [
 
 
 movieList.addEventListener('click', event => {
-  
-  console.log(event.target.dataset)
-  event.target.dataset.favColor = 'turquoise'
-  console.log(event.target.dataset.beef === 'woof')
-  
-  
   if(event.target.className === 'up-vote'){
     console.log('voting up')
     let button = event.target
@@ -56,16 +50,14 @@ movieList.addEventListener('click', event => {
     score++
     
     span.textContent = score
-  }
+
 
   // using the dataset in your conditional, remove the movie li when the delete is clicked
+  } if(event.target.dataset.purpose === 'delete'){
+    let button = event.target
+    button.parentNode.remove()
+  }
 })
-
-
-// As user, when I click on the Up-Vote button for the Jaws movie, the score should increment by one.
-
-
-
 
 
 // √iterate through all our movies
