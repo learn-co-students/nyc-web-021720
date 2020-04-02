@@ -41,8 +41,35 @@ const movies = [
 ]
 
 
-// iterate through all our movies
-// invoke createMovieEl for each movie in the collection
+movieList.addEventListener('click', event => {
+  
+  console.log(event.target.dataset)
+  event.target.dataset.favColor = 'turquoise'
+  console.log(event.target.dataset.beef === 'woof')
+  
+  
+  if(event.target.className === 'up-vote'){
+    console.log('voting up')
+    let button = event.target
+    let span = button.parentNode.querySelector('span')
+    let score = span.textContent
+    score++
+    
+    span.textContent = score
+  }
+
+  // using the dataset in your conditional, remove the movie li when the delete is clicked
+})
+
+
+// As user, when I click on the Up-Vote button for the Jaws movie, the score should increment by one.
+
+
+
+
+
+// √iterate through all our movies
+// √invoke createMovieEl for each movie in the collection
 
 movies.forEach(function(movie){
   let movieLi = createMovieEl(movie)
@@ -68,6 +95,22 @@ function createMovieEl(movieObj){
   return newMovie
 }
 
+// √grab the up vote button
+// √add event listener to it for clicks
+// √grab the score
+// √increment score by 1
+// √add it to the DOM
 
+// let upVoteButtons = Array.from(document.getElementsByClassName('up-vote'))
 
-// As user, when I click on the Up-Vote button for the Goonies movie, the score should increment by one.
+// upVoteButtons.forEach(function(button){
+//   button.addEventListener('click', event => {
+//     let button = event.target
+//     let span = button.parentNode.querySelector('span')
+//     let score = span.textContent
+//     score++
+    
+//     span.textContent = score
+//   })
+// })
+
