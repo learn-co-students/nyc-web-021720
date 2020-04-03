@@ -1,4 +1,6 @@
-You have an empty `db.json` file to use with json-server. Run json-server
+# I dunno, some weird activity that I just made up. ¯\_(ツ)_/¯ 
+
+Run json-server
 
 1. When a user clicks on the "Random GIF" button, make a `GET` request to the endpoint below to get a random gif. Display the gif on the `img` tag on the page with the id `image`.
 
