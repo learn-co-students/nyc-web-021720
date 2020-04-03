@@ -1,4 +1,4 @@
-# I dunno, some weird activity that I just made up. ¯\_(ツ)_/¯ 
+# I dunno, some weird activity that I just made up. ¯\\_(ツ)_/¯ 
 
 Run json-server
 
