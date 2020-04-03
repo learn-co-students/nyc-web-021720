@@ -1,76 +1,95 @@
 console.log("index js")
 
 let movieList = document.querySelector('ul')
-const movies = [
-  {
-    title: "Jaws",
-    imageUrl: "https://resizing.flixster.com/h8e7W7cVaQhuLdSvABDkJk6r5sc=/206x305/v1.bTsxMTE2NjE5OTtqOzE4MzU0OzEyMDA7ODAwOzEyMDA",
-    year: 1975,
-    score: 19
-  },
-  {
-    title: "The Matrix",
-    imageUrl: "https://imgc.allpostersimages.com/img/print/u-g-F4S5W20.jpg?w=550&h=550&p=0",
-    year: 1999,
-    score: 18
-  },
-  {
-    title: 'The Goonies',
-    imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/515DYf99zfL.jpg',
-    year: 1985,
-    score: 0
-  },
-  { 
-    title: 'Free Willy',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b5/Free_willy.jpg/220px-Free_willy.jpg',
-    year: 1993,
-    score: 0  
-  },
-  { 
-    title: 'Top Gun',
-    imageUrl: 'https://m.media-amazon.com/images/M/MV5BZjQxYTA3ODItNzgxMy00N2Y2LWJlZGMtMTRlM2JkZjI1ZDhhXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_.jpg',
-    year: 1986,
-    score: 0  
-  },
-  { 
-    title: 'Mean Girls',
-    imageUrl: 'https://img01.mgo-images.com/image/thumbnail?id=1MV270609a1c6c89af5538a6d63cea71ed4&ql=70&sizes=310x465',
-    year: 2004,
-    score: 0  
-  },
-  { 
-    title: 'Parasite',
-    imageUrl: 'https://mymodernmet.com/wp/wp-content/uploads/2020/02/parasite-film-tribute-1.jpg',
-    year: 2019,
-    score: 0  
-  },
-  {
-    title: 'Back to the Future',
-    year: 1985,
-    score: 99,
-    imageUrl: "https://cdn.shopify.com/s/files/1/1148/8924/products/MPW-93254-a_1024x1024.jpg?v=1571439877"
-  }
-]
+let stupidHeaders = {
+  "content-type": "application/json",
+  "accept": "application/json"
+}
 
-movieList.addEventListener('click', event => {
-  if(event.target.className === 'up-vote'){
-    console.log('voting up')
-    let button = event.target
-    let span = button.parentNode.querySelector('span')
-    let score = span.textContent
-    score++
-    
-    span.textContent = score
-  } if(event.target.dataset.purpose === 'delete'){
-    let button = event.target
-    button.parentNode.remove()
-  }
+
+document.addEventListener("DOMContentLoaded", function(event){
+  
+  getMovies()
+
+  let formButton = document.createElement('button')
+  formButton.textContent = "Add Movie"
+  let welcomeImage = document.getElementById('welcome-image')
+  welcomeImage.insertAdjacentElement('afterend', formButton)
+
+  formButton.addEventListener('click', function(event){
+    let newForm = document.createElement('form')
+    newForm.innerHTML = `
+      <label>Title: </label>
+      <input type="text" name="title"><br/>
+      <label>Image URL: </label>
+      <input type="text" name="imageUrl"><br/>
+      <label>Year: </label>
+      <input type="number" name="year"><br/>
+      <label>Submit: </label>
+      <input type="submit" value="submit">
+    `
+
+    document.body.replaceChild(newForm, formButton)
+
+    newForm.addEventListener('submit', function(event){
+      event.preventDefault()
+
+      let form = event.target
+
+      let title = form.title.value
+      let year = form.year.value
+      let imageUrl = form.imageUrl.value
+      let score = 0
+
+      let newMovie = { title, year, imageUrl, score }
+
+      let movieEl = createMovieEl(newMovie)
+
+      movieList.append(movieEl)
+
+      newForm.reset()
+
+      document.body.replaceChild(formButton, newForm)
+
+      fetch("http://localhost:3000/movies", {
+        method: "POST",
+        headers: stupidHeaders,
+        body: JSON.stringify(newMovie)
+      })
+    })
+  })
+
+  movieList.addEventListener('click', event => {
+    if(event.target.className === 'up-vote'){
+      console.log('voting up')
+      let button = event.target
+      let span = button.parentNode.querySelector('span')
+      let score = span.textContent
+      score++
+      
+      span.textContent = score
+    } if(event.target.dataset.purpose === 'delete'){
+      let button = event.target
+      button.parentNode.remove()
+    }
+  })
+
 })
 
-movies.forEach(function(movie){
-  let movieLi = createMovieEl(movie)
-  movieList.appendChild(movieLi)
-})
+
+function getMovies(){
+  // √make a fetch request to get movies from DB
+  // √on successful completion of request render each movie to the page
+
+  fetch("http://localhost:3000/movies")
+  .then(response => response.json())
+  .then(movies => {
+    movies.forEach(function(movie){
+      let movieLi = createMovieEl(movie)
+      movieList.appendChild(movieLi)
+    })
+  })
+}
 
 function createMovieEl(movieObj){
   let newMovie = document.createElement('li')
@@ -90,4 +109,3 @@ function createMovieEl(movieObj){
 
   return newMovie
 }
-
