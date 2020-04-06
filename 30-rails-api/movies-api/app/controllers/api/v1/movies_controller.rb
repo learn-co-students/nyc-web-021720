@@ -11,6 +11,13 @@ class Api::V1::MoviesController < ApplicationController
     render json: movie, except: [:updated_at, :created_at]
   end
 
+  def update
+    movie = Movie.find(params[:id])
+    movie.update(movie_params)
+
+    render json: movie, except: [:updated_at, :created_at]
+  end
+  
   private
 
   def movie_params

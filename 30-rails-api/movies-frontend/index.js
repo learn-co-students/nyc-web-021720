@@ -43,10 +43,6 @@ document.addEventListener("DOMContentLoaded", function(event){
 
       let newMovie = { title, year, imageUrl, score }
 
-      let movieEl = createMovieEl(newMovie)
-
-      movieList.append(movieEl)
-
       newForm.reset()
 
       document.body.replaceChild(formButton, newForm)
@@ -55,6 +51,12 @@ document.addEventListener("DOMContentLoaded", function(event){
         method: "POST",
         headers: stupidHeaders,
         body: JSON.stringify(newMovie)
+      })
+      .then(response => response.json())
+      .then(movieObj => {
+        let movieEl = createMovieEl(movieObj)
+
+        movieList.append(movieEl)
       })
     })
   })
@@ -68,14 +70,25 @@ document.addEventListener("DOMContentLoaded", function(event){
       score++
       
       span.textContent = score
+      let id = event.target.parentNode.dataset.id
+
+      fetch(`${baseUrl}/${id}`, { // http://localhost:3000/ap/v1/movies/23
+        method: "PATCH",
+        headers: stupidHeaders,
+        body: JSON.stringify({ score })
+      })
+      .then(response => response.json())
+      .then(console.log)
+
     } if(event.target.dataset.purpose === 'delete'){
+      // only remaining functionality we need to implement with out back-end
+      // how would we do it pessimistically?
+
       let button = event.target
       button.parentNode.remove()
     }
   })
-
 })
-
 
 function getMovies(){
   fetch(baseUrl)
@@ -90,6 +103,7 @@ function getMovies(){
 
 function createMovieEl(movieObj){
   let newMovie = document.createElement('li')
+  newMovie.dataset.id = movieObj.id
 
   newMovie.className = "movie"
   
