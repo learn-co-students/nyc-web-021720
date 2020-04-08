@@ -23,9 +23,6 @@ document.addEventListener("DOMContentLoaded", event => {
 function clickHandler() {
   main.addEventListener('click', event => {
     if(event.target.textContent === 'Add Pokemon'){
-      console.dir(event.target)
-      event.target.trainerId = 555
-      console.dir(event.target)
       fetch(POKEMONS_URL, {
         method: "POST",
         headers: {
@@ -36,7 +33,6 @@ function clickHandler() {
       })
       .then(response => response.json())
       .then(pokemon => {
-        console.log(pokemon)
         if(pokemon.error){
           alert(pokemon.error)
         } else {
@@ -66,7 +62,6 @@ function fetchTrainers(){
     // √get data
     // √create li for each pokemons
 
-    console.log(trainers)
     trainers.forEach(trainer => {
       let div = renderTrainer(trainer)
       main.append(div)
