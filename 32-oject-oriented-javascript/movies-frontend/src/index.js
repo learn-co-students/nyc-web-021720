@@ -63,19 +63,12 @@ document.addEventListener("DOMContentLoaded", function(event){
 
     } if(event.target.dataset.purpose === 'delete'){
       let id = parseInt(event.target.parentNode.dataset.id)
-      // let movie = Movie.find(id)
-
-      // movie.remove()
 
       movieAdapter.deleteResource(id)
       .then(movieObj => {
         let movie = Movie.find(movieObj.id)
         movie.remove()
       })
-      
-      // use adapter to make a delete request
-      // instiate a movie 
-      // and then remove it from the DOM
     }
   })
 })
