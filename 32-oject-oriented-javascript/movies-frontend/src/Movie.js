@@ -55,4 +55,5 @@ class Movie {
   }
 }
 
-Movie.all = [] // use this instead of a static varaible for now
+// use this instead of a static varaible for now
+Movie.all = [] 

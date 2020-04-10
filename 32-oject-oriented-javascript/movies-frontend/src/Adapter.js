@@ -32,4 +32,10 @@ class Adapter {
     .then(response => response.json())
   }
 
+  deleteResource(id){
+    return fetch(`${this.baseUrl}/${id}`, {
+      method: "DELETE"
+    })
+    .then(response => response.json())
+  }
 }

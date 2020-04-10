@@ -4,7 +4,7 @@ const stupidHeaders = {
   "content-type": "application/json",
   "accept": "application/json"
 }
-const adapter = new Adapter(baseUrl)
+const movieAdapter = new Adapter(baseUrl)
 
 document.addEventListener("DOMContentLoaded", function(event){
   
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function(event){
 
       document.body.replaceChild(formButton, newForm)
 
-      adapter.createResource(newMovie)
+      movieAdapter.createResource(newMovie)
       .then(renderMovie)
     })
   })
@@ -58,20 +58,30 @@ document.addEventListener("DOMContentLoaded", function(event){
 
       movie.incrementScore()
 
-      adapter.updateResource(movie, { score: movie.score })
+      movieAdapter.updateResource(movie, { score: movie.score })
       .then(console.log)
 
     } if(event.target.dataset.purpose === 'delete'){
       let id = parseInt(event.target.parentNode.dataset.id)
-      let movie = Movie.find(id)
+      // let movie = Movie.find(id)
 
-      movie.remove()
+      // movie.remove()
+
+      movieAdapter.deleteResource(id)
+      .then(movieObj => {
+        let movie = Movie.find(movieObj.id)
+        movie.remove()
+      })
+      
+      // use adapter to make a delete request
+      // instiate a movie 
+      // and then remove it from the DOM
     }
   })
 })
 
 function getMovies(){
-  adapter.getResources()
+  movieAdapter.getResources() // <= returns a promise
   .then(renderMovies)
 }
 

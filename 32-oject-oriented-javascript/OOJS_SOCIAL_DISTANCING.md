@@ -19,6 +19,17 @@ Here are some helpful resources to look at while you answer these questions:
 1. Create a TV Series class in JavaScript. It should initialize with the following properties: title, number of seasons, streaming service, genre, years.
 
 ```javascript
+class TvSeries {
+  constructor(obj){
+    this.title = obj.title
+    ...
+  }
+
+
+  prettyPrint(){
+    return `${this.title}, ...`
+  }
+}
 
 ```
 
@@ -67,7 +78,10 @@ Here are some helpful resources to look at while you answer these questions:
 7. Write a function separate from the class that, when given an array of object literals representing TV Series, returns an array of pretty printed strings.
 
 ```javascript
-
+tvSeries.map(tvShow => {
+  let newShow = new Show(tvShow)
+  return newShow.prettyPrint()
+})
 ```
 
 8. Write a function separate from the class that will render all the TV series that have been created onto a page with the following HTML.
