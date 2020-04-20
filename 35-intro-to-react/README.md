@@ -13,7 +13,18 @@ Intro to React
 
 ## Notes
 
+Transitioning to React
+ - always need babel enabled ==> this will look a lil different afternoon lecture forward
+ - camelCase errythang (ie className)
+ - always have to return one top level div / element 
+ - props are to components as arguments are to functions
+ - get comfy with... arrow funcs, destructuring, ternary operator, and spread operator (starting this afternoon) 
+ - MOST IMPORTANT: read your errors
+
 ### Declarative vs Imperative Programming
+
+declarative - make me a double bacon cheeseburger plz! 
+imperative - medium, diameter of exactly 6 inches, height of 1.5 inches, chop the lettuce 
 
 #### Imperative
 ```js
@@ -70,8 +81,8 @@ FINAL FORM: *Dynamic, reusable components using JSX and props*
 [Babel](https://babeljs.io/)
 [React](https://reactjs.org/)
 [Whiteboarding App](https://awwapp.com)
+[Thinking in React](https://reactjs.org/docs/thinking-in-react.html)
 
 
 
 ### Parking Lot 
-Fire Island 

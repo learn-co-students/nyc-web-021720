@@ -11,10 +11,44 @@
     <div id="root"></div>
 
     <script type="text/babel">  
+
+      // function nottanion
+    const createGreeting = (title, subtitle) => {
+      return (
+        <div className="greeting-card">
+          <h1>{title}</h1>
+          <h3>{subtitle}</h3>
+        </div>
+      )
+    }
+
+      // component notation
+    const Card = props => {
+      console.log(props)
+      // destructuring assignment  ==> on objects or arrays 
+      let { title, subtitle, excited, comments, likes } = props;
+      
+        return (
+          <div className="greeting-card">
+            <h1>{title}</h1>
+            <h3>{subtitle} {excited && '!!!!!!!!! 🤓'}</h3>
+            <p>Likes: {likes}</p>
+            {comments.map((comment, index) => <div key={index}>{comment}</div>)}
+          </div>
+        )
+    }
+
+    // ReactDOM.render(firstArg, secondArg)
+    // ReactDOM.render(whatToRender, whereToRender)
+
+    // things coming up later
+    // arrow funcs and binding
+    // this and class components
+
     ReactDOM.render(
       <div>
-        <h1>Hello, World!</h1>
-        <h3>Welcome to React</h3>
+       <Card title="Hola, Mundo!"  subtitle="Bienvenido a React" likes={5} comments={['spanish is cool', 'i wanna learn']}/>
+       <Card title="Hello, World!" subtitle="Welcome to react" comments={[]} excited={true}/>
       </div>
       , 
       document.getElementById('root'))
