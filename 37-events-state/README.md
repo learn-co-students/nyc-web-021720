@@ -2,13 +2,13 @@ State, Events, and Conditional Rendering
 ==============
 
 ## SWBATs
-- [ ] Add event handlers to elements in React
-- [ ] Explain why we have Synthetic Events
-- [ ] Instantiate `state` inside and outside of the `constructor`
-- [ ] Create event handler callbacks that manipulate `state`
-- [ ] Trigger rerenders by calling `setState`
-- [ ] Manipulate the DOM by changing values in `state` instead of using vanilla JS
-- [ ] Correctly choose when to use `props` vs `state`, and explain why one would use one or the other
+- [X] Add event handlers to elements in React
+- [X] Explain why we have Synthetic Events
+- [X] Instantiate `state` inside and outside of the `constructor`
+- [X] Create event handler callbacks that manipulate `state`
+- [X] Trigger rerenders by calling `setState`
+- [X] Manipulate the DOM by changing values in `state` instead of using vanilla JS
+- [X] Correctly choose when to use `props` vs `state`, and explain why one would use one or the other
 
 ## Lecture Notes
 
@@ -41,6 +41,13 @@ This is a key component of declarative programming in React: we tie our componen
 `setState` is asynchronous - this means that code written immediately after a `setState` will not see changes in your state. If you wish to call a function after state has been changed, you can pass a callback as the second argument to `setState`
 
 `setState` can take an object OR a function as its first argument. Use the function when you intend to use the old state values when writing the new state values.
+
+#### Is it State?
+1. Is it passed in from a parent via props? If so, it probably isn’t state.
+2. Does it remain unchanged over time? If so, it probably isn’t state.
+3. Can you compute it based on any other state or props in your component? If so, it isn’t state.
+
+Note: Do not keep extra things in state. For instance, in a TODO list app, you do not need to keep the count on the state if you are storing an array of todo list items. Just use the length. 
 
 ### Props
 
