@@ -12,7 +12,7 @@
     "styled-components": "^5.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "json-server --watch db.json -p 3000 & open http://localhost:3000/media & PORT=3001 react-scripts start && fg",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

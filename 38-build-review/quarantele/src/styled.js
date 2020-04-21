@@ -17,6 +17,7 @@ export const TopLevelStyle = styled.div`
     background-color: black;
     color: white;
     width: 101vw;
+    min-height: 100vh;
 
     h2 {
         margin: 10px 10px 0px;
@@ -45,4 +46,24 @@ export const StyledCard = styled.div`
 export const CarouselImg = styled.img`
     max-height: 250px;
     max-width: 100%;
+`
+
+export const FlexGrid = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+`
+
+export const NavRow = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: no-wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    > div {
+        flex-basis: 10%;
+    }
+
 `
