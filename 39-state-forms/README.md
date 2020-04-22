@@ -11,9 +11,9 @@ State and Forms
 - [ ] Use form data to update state in various ways
 
 ### Features / Process
-- Walk through code changes
-- Add Comment Form 
-- PRACTICE HW ====> Pair Program & Blind Driver: Search with automatic filtering 
+- Search in Navbar
+- Create Account Form 
+- Filter in GridViews
 
 ## Lecture Notes
 
