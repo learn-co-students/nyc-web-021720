@@ -63,7 +63,7 @@ class App extends React.Component {
         {view === 'home' &&  <HomeView media={searchedMedia} fetchMedia={this.fetchMedia} switchWatchList={this.switchWatchList}/>}
         {view === 'tv' && <GridView title={"TV Shows"} media={searchedMedia.filter(item => item.type === 'TV')} switchWatchList={this.switchWatchList}/>}
         {view === 'movies' && <GridView title={"Movies"} media={searchedMedia.filter(item => item.type === 'Movie')} switchWatchList={this.switchWatchList}/>}
-        {view === 'account' && <CreateAccount />}
+        {view === 'account' && <CreateAccount switchView={this.switchView}/>}
       </TopLevelStyle>
     );
   }

@@ -5,13 +5,20 @@ import { FlexGrid } from './styled';
 const allGenres = ["comedy", "adventure", "family", "drama", "action", "animation", "crime"]
 
 
-const GridView = props => {
+class GridView extends React.Component {
+    state = {
+        genre: ''
+    }
 
-    const renderFilterRow = () => {
+    handleChange = event => {
+        this.setState({ genre: event.target.value})
+    }
+
+    renderFilterRow = () => {
         return (
             <div>
                 <label> Genre: 
-                    <select>
+                    <select value={this.state.genre} onChange={this.handleChange}>
                         <option value="">All Genres</option>
                         {allGenres.map((genre, ind) => <option key={ind} value={genre}>{genre}</option>)}
                     </select>
@@ -25,21 +32,33 @@ const GridView = props => {
             </div>
         )
     }
-    return (
-        <div>
-            <h1>{props.title}</h1>
-            {renderFilterRow()}
-            <FlexGrid>
-                {props.media.map(item => (
-                    <CarouselCard 
-                        key={item.id} 
-                        {...item}
-                        selectMovie={() => {}}
-                        switchWatchList={props.switchWatchList}/>
-                ))}
-            </FlexGrid>
-        </div>
-    )
+
+    render() {
+        console.log(this.state.genre)
+        let filteredMedia = this.props.media.filter(item => {
+            if (this.state.genre === ''){
+                return true
+            } else {
+                return item.genres.includes(this.state.genre)
+            }
+        })
+
+        return (
+            <div>
+                <h1>{this.props.title}</h1>
+                {this.renderFilterRow()}
+                <FlexGrid>
+                    {filteredMedia.map(item => (
+                        <CarouselCard 
+                            key={item.id} 
+                            {...item}
+                            selectMovie={() => {}}
+                            switchWatchList={this.props.switchWatchList}/>
+                    ))}
+                </FlexGrid>
+            </div>
+        )
+    }
 }
 
 export default GridView;
