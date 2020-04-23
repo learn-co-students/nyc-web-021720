@@ -1,0 +1,103 @@
+{ "media" :  [
+    {
+        "id": 1,
+        "name": "Family Matters",
+        "type": "TV",
+        "rating": 10,
+        "IMDBRating": 6.5, 
+        "description": "Policeman Carl Winslow has enough to deal with on the job. But when he gets home, he still has to handle kids, his wife, Harriette (whose character was first introduced on the sitcom 'Perfect Strangers'), his mom, a sister-in-law and Urkel, the nerd next door who doesn't understand that he doesn't actually live with the Winslows.",
+        "genres": ["comedy", "adventure", "family"],
+        "image": "https://ib4.hulu.com/user/v3/artwork/42d74a09-d1fd-42e5-b43c-19afca96584f?base_image_bucket_name=image_manager&base_image=ec4e251a-9b41-411c-b495-0bd8fe6ad9fa&region=US&format=jpeg&size=952x536"
+    },
+    {
+        "id": 2,
+        "name": "Boy Meets World",
+        "type": "TV",
+        "rating": 10,
+        "IMDBRating": 8.1,  
+        "description": "",
+        "genres": ["comedy", "drama", "family"],
+        "image": "https://images-na.ssl-images-amazon.com/images/I/51z2NSfyRDL._SX300_.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Mega Man",
+        "type": "TV",
+        "rating": 10,
+        "IMDBRating": 8.1, 
+        "description": "",
+        "genres": ["action", "animation", "adventure"],
+        "image": "https://m.media-amazon.com/images/M/MV5BZmM4MzYwNmQtZmQ2MS00NTc2LWJmYjctZjJlNmEyZWJmYmM3XkEyXkFqcGdeQXVyNzU1NzE3NTg@._V1_CR0,45,480,270_AL_UX477_CR0,0,477,268_AL_.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Avatar the Last Airbender",
+        "type": "TV",
+        "rating": 10,
+        "IMDBRating": 9.14, 
+        "description": "The world is divided into four nations -- the Water Tribe, the Earth Kingdom, the Fire Nation and and the Air Nomads -- each represented by a natural element for which the nation is named. Benders have the ability to control and manipulate the element from their nation. Only the Avatar is the master of all four elements. The ruthless Fire Nation wants to conquer the world but the only bender who has enough power, the Avatar, has disappeared ... until now. His tribe soon discovers that Aang is the long-lost Avatar. Now Katara and Sokka must safeguard Aang on his journey to master all four elements and save the world from the Fire Nation.",
+        "genres": ["action", "animation", "adventure"],
+        "image": "https://imgix.bustle.com/uploads/image/2020/3/27/8b9d10d8-b091-40a5-a624-69b6a3afa90d-avatar-nickelodeon.png?w=970&h=546&fit=crop&crop=faces&auto=format%2Ccompress&cs=srgb&q=70"
+    },
+    {
+        "id": 5,
+        "name": "Tiger King",
+        "type": "TV",
+        "rating": 10,
+        "IMDBRating": 3.14, 
+        "description": "An exploration of big cat breeding and its bizarre underworld, populated by eccentric characters.",
+        "genres": ["action", "crime", "drama"],
+        "image": "https://media.foxbusiness.com/BrightCove/854081161001/202003/2419/854081161001_6145981590001_6145983709001-vs.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Ghost in the Shell",
+        "type": "Movie",
+        "rating": 10,
+        "IMDBRating": 3.14, 
+        "description": "In this Japanese animation, cyborg federal agent Maj. Motoko Kusanagi (Mimi Woods) trails \"The Puppet Master\" (Abe Lasser), who illegally hacks into the computerized minds of cyborg-human hybrids. Her pursuit of a man who can modify the identity of strangers leaves Motoko pondering her own makeup and what life might be like if she had more human traits. With her partner (Richard George), she corners the hacker, but her curiosity about her identity sends the case in an unforeseen direction.",
+        "genres": ["action", "animation", "drama"],
+        "image": "https://sgliput.files.wordpress.com/2017/11/32b28-intro2bscene2bcamo.png?w=529"
+    },
+    {
+        "id": 7,
+        "name": "Black Panther",
+        "type": "Movie",
+        "rating": 10,
+        "IMDBRating": 3.14, 
+        "description": "After the death of his father, T'Challa returns home to the African nation of Wakanda to take his rightful place as king. When a powerful enemy suddenly reappears, T'Challa's mettle as king -- and as Black Panther -- gets tested when he's drawn into a conflict that puts the fate of Wakanda and the entire world at risk. Faced with treachery and danger, the young king must rally his allies and release the full power of Black Panther to defeat his foes and secure the safety of his people.",
+        "genres": ["action", "adventure", "drama"],
+        "image": "https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Princess Bride",
+        "type": "Movie",
+        "rating": 10,
+        "IMDBRating": 3.14, 
+        "description": "A fairy tale adventure about a beautiful young woman and her one true love. He must find her after a long separation and save her. They must battle the evils of the mythical kingdom of Florin to be reunited with each other. Based on the William Goldman novel \"The Princess Bride\" which earned its own loyal audience.",
+        "genres": ["action", "comedy", "drama"],
+        "image": "https://resizing.flixster.com/j-QlghDv5x_l7sHNDMH6W9suFiA=/206x305/v1.bTsxMTk1MjE1NTtqOzE4NDA4OzEyMDA7NzMwOzEyMTg"
+    },
+    {
+        "id": 9,
+        "name": "There Will Be Blood",
+        "type": "Movie",
+        "rating": 10,
+        "IMDBRating": 3.14, 
+        "description": "Ruthless silver miner, turned oil prospector, Daniel Plainview moves to oil-rich California. Using his adopted son HW to project a trustworthy, family-man image, Plainview cons local landowners into selling him their valuable properties for a pittance. However, local preacher Eli Sunday suspects Plainviews motives and intentions, starting a slow-burning feud that threatens both their lives.",
+        "genres": ["action", "crime", "drama"],
+        "image": "https://www.gstatic.com/tv/thumb/v22vodart/171565/p171565_v_v8_ag.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Neon Genesis Evangelion",
+        "type": "TV",
+        "rating": 10,
+        "IMDBRating": 3.14, 
+        "description": "",
+        "genres": ["action", "animation", "drama"],
+        "image": "https://cdn.vox-cdn.com/thumbor/C4I-J2oTmRoFfWUjndwlCP0vDZ0=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/16446712/tumblr_nzss2qZIyT1suxi1yo1_1280.jpg"
+    }
+] 
+}
