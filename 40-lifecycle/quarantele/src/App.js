@@ -10,8 +10,24 @@ class App extends React.Component {
   state = {
     view: 'home',
     media: [],
-    search: ''
+    search: '',
+    // watchList: [] // ids NOT OBJECTS 
   }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/media')
+    .then(res => res.json())
+    .then(data => {
+        this.setState({ media: data })
+    })
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(prevState.view !== this.state.view){
+      this.setState({ search: '' })
+    }
+  }
+
 
   switchView = type => {
     this.setState({ view: type })
@@ -21,13 +37,6 @@ class App extends React.Component {
     // console.log(event.target.value)
     this.setState({ search: event.target.value })
   }
-
-// REFERENCE 
-  // handleSearchTerm = (term) => {
-      // DO NOT RESET MEDIA STATE CAUSE YOUD HAVE TO FETCH AGAIN
-  //   // this.setState({ media: this.state.media.filter( item => item.name.includes(term) )})
-  //   this.setState({ search: term })
-  // }
 
 
   switchWatchList = id => { // SNAZZY MAP THINGS
@@ -41,14 +50,7 @@ class App extends React.Component {
     this.setState({ media: updatedMedia  })
   }
 
-  fetchMedia = () => {
-    fetch('http://localhost:3000/media')
-    .then(res => res.json())
-    .then(data => {
-        this.setState({ media: data })
-    })
-  }
-
+  
   render(){
     let { media, search, view } = this.state;
     let searchedMedia = media.filter( item => item.name.toLowerCase().includes(search.toLowerCase()) )
@@ -60,7 +62,8 @@ class App extends React.Component {
           switchView={this.switchView} 
           handleSearchChange={this.handleSearchChange}
           search={search}/>
-        {view === 'home' &&  <HomeView media={searchedMedia} fetchMedia={this.fetchMedia} switchWatchList={this.switchWatchList}/>}
+        {view === 'home' &&  <HomeView media={searchedMedia} switchWatchList={this.switchWatchList}/>}
+        {view === 'list' && <GridView title={"My Watch List"} media={searchedMedia.filter(item => item.inWatchList)} switchWatchList={this.switchWatchList}/>}
         {view === 'tv' && <GridView title={"TV Shows"} media={searchedMedia.filter(item => item.type === 'TV')} switchWatchList={this.switchWatchList}/>}
         {view === 'movies' && <GridView title={"Movies"} media={searchedMedia.filter(item => item.type === 'Movie')} switchWatchList={this.switchWatchList}/>}
         {view === 'account' && <CreateAccount switchView={this.switchView}/>}

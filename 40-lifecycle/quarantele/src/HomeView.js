@@ -22,7 +22,6 @@ class HomeView extends React.Component {
     
         return (
             <div>
-                <div onClick={this.props.fetchMedia}>GET MEDIA</div>
                 { previewMovie && <Preview {...previewMovie} />  }
                 <CategoryCarousel 
                     title="All Media" 

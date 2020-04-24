@@ -5,9 +5,12 @@ Component Lifecycle Methods
 - [ ] Write methods that interact with data at different points throughout a component's life
 - [ ] Identify the most-used Lifecycle Methods
 - [ ] Explain why we `fetch` data using `componentDidMount`
-- [ ] Identify problems caused by asynchronicity in React
 
 ## Lecture Notes
+How's the Potions DQ go? 
+
+### Pre-Lecture Questions
+- 
 
 [React Spinner Loader](https://www.npmjs.com/package/react-loader-spinner)
 

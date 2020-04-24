@@ -30,6 +30,7 @@ class Navbar extends React.Component {
                 <div onClick={() => this.props.switchView('movies')}>Movies</div>
                 <div onClick={() => this.props.switchView('tv')}>TV</div>
                 <input placeholder="Enter title to search..." onChange={this.props.handleSearchChange} value={this.props.search}/>
+                <div onClick={() => this.props.switchView('list')}>My Watch List</div>
                 <div onClick={() => this.props.switchView('account')}>Login/Create Account</div>
             </NavRow>
         )
