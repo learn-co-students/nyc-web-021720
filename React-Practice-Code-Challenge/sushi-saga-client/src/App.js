@@ -33,15 +33,40 @@ class App extends Component {
     
     // only if the sushi's price is not higher than my budget
     let sushiPrice = this.state.sushis.find(sushi => sushi.id === id).price
+
+    // update eaten: true of just ONE object inside of this.state.sushis
+    
     if( this.state.budget >= sushiPrice && !this.state.eaten.includes(id) ){
       this.setState({ 
         eaten: [...this.state.eaten, id],
+
         budget: this.state.budget - sushiPrice
       })
     } else {
       alert("you need more dinero or you tryna eat an empty plate weirdo")
     }
     // if its not already there
+  }
+
+  eatSushiKeyVersion = (id) => {
+    let sushiPrice = this.state.sushis.find(sushi => sushi.id === id).price
+    let newSushis = this.state.sushis.map(sushi => {
+      if (sushi.id === id){
+        return {...sushi, eaten: true}
+      } else {
+        return sushi
+      }
+    })
+
+    if (sushiPrice <= this.state.budget){
+      this.setState({
+        budget: this.state.budget - sushiPrice,
+        sushis: newSushis
+      })
+    } else {
+      alert('no monies')
+    }
+
   }
 
   updateIndex = () => {
@@ -80,7 +105,11 @@ class App extends Component {
           </label>
         </form>
         <SushiContainer sushis={displayedSushis} eaten={this.state.eaten} updateIndex={this.updateIndex} eatSushi={this.eatSushi}/>
-        <Table eaten={this.state.eaten} budget={this.state.budget}/>
+        <Table 
+          // KEY VERSION
+          // eaten={this.state.sushis.filter( sushi => sushi.eaten )}
+          eaten={this.state.eaten} 
+          budget={this.state.budget}/>
       </div>
     );
   }

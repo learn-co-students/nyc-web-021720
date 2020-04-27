@@ -7,6 +7,8 @@ const Sushi = (props) => {
            onClick={() => props.eatSushi(props.sushi.id) }>
         {// [1,5,70,18].includes(3)
           props.eaten.includes(props.sushi.id) ?
+          // KEY VERSION 
+          // props.sushi.eaten ?
             null
           :
             <img src={props.sushi.img_url} alt="sushi image" width="100%" />
