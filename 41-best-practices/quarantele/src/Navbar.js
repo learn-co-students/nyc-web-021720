@@ -25,7 +25,7 @@ class Navbar extends React.Component {
         // console.log('this.state.searchTerm: ', this.state.searchTerm)
         return (
             <NavRow>
-                <div onClick={() => this.props.switchView('home')}>Quarantele📺</div>
+                <div onClick={() => this.props.switchView('home')}>Quarantele<span role="img" aria-label="tv">📺</span></div>
                 <div onClick={() => this.props.switchView('home')}>Home</div>
                 <div onClick={() => this.props.switchView('movies')}>Movies</div>
                 <div onClick={() => this.props.switchView('tv')}>TV</div>

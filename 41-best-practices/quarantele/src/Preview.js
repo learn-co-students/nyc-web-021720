@@ -2,7 +2,7 @@ import React from 'react';
 import { StyledPreview, PreviewText } from './styled';
 
 const Preview = props => {
-    let { id, name, image, description, genres, type, rating, IMDBRating } = props;
+    let { name, image, description, genres } = props;
     console.log('preview props:', image)
 
     return (

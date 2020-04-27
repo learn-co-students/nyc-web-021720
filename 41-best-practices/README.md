@@ -40,6 +40,7 @@ React Best Practices
 [Pure Components](https://reactjs.org/docs/react-api.html#reactpurecomponent)
 [Redux Code Structure](https://redux.js.org/faq/code-structure)
 [HOCs](https://reactjs.org/docs/higher-order-components.html)
+[Index.js Interfaces](https://alligator.io/react/index-js-public-interfaces/)
 
 ## Lecture Notes
 

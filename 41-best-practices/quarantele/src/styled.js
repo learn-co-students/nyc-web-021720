@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const VideoView = styled.iframe`
+    margin-top: 20px;
+    min-height: 500px;
+    width: 100vw;
+`
+
 export const StyledPreview = styled.div`
     background: no-repeat url(${props => props.image});
     height: 600px;
