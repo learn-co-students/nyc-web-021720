@@ -8,18 +8,18 @@ React Best Practices
 ## Objectives
 
 - Opinions
-  - [x] Code Organization/file structure 
+  - [ ] Code Organization/file structure 
         - Folders: Components & Containers, orrrr organized by resource
-  - [x] Presentational vs Container components
+  - [ ] Presentational vs Container components
 
 - Optimizations:
-  - [X] Functional vs Class Components (required for state & lifecycle methods)
-  - [X] Fragments
+  - [ ] Functional vs Class Components (required for state & lifecycle methods)
+  - [ ] Fragments
 
 - Best Practices:
-  - [X] Functional setState
-  - [X] "then" callback for setState
-  - [X] Callbacks (avoid useless wrapping)
+  - [ ] Functional setState
+  - [ ] "then" callback for setState
+  - [ ] Callbacks (avoid useless wrapping)
 
 - JS tricks/bugs often seen in React:
   - [ ] Arrow functions returning objects () => ({ })
@@ -31,6 +31,8 @@ React Best Practices
 
 - Too Involved for RN
     - [ ] HOCs Magic magic magic!
+    - [ ] Hooks
+    - [ ] Styling (styled-components, sass)
 
 ## Resources
 
