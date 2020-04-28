@@ -1,5 +1,5 @@
 import React from 'react';
-import Preview from './Preview';
+import Preview from '../components/Preview';
 import CategoryCarousel from './CategoryCarousel';
 
 const allGenres = ["comedy", "adventure", "family", "drama", "action", "animation", "crime"]

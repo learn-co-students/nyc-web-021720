@@ -1,5 +1,5 @@
 import React from 'react';
-import { VideoView } from './styled';
+import { VideoView } from '../styled';
 
 const MoviePage = props => {
     return (

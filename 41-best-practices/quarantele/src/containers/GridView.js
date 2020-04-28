@@ -1,6 +1,6 @@
 import React from 'react';
-import CarouselCard from './CarouselCard';
-import { FlexGrid } from './styled';
+import CarouselCard from '../components/CarouselCard';
+import { FlexGrid } from '../styled';
 
 const allGenres = ["comedy", "adventure", "family", "drama", "action", "animation", "crime"]
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledPreview, PreviewText } from './styled';
+import { StyledPreview, PreviewText } from '../styled';
 
 const Preview = props => {
     let { name, image, description, genres } = props;

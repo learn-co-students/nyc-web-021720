@@ -1,28 +1,10 @@
 import React from 'react';
-import { NavRow } from './styled';
+import { NavRow } from '../styled';
 
 
 class Navbar extends React.Component {
 
-    // state = {
-    //     searchTerm: ''
-    // }
-
-    // handleChange = (event) => {
-    //     // console.log(event.target.value)
-    //     this.setState({ searchTerm: event.target.value })
-    // }
-
-    // REFERENCE
-    // handleSubmit = event => {
-    //     event.preventDefault()
-    //     this.props.handleSearchTerm(this.state.searchTerm)
-    //     // console.log(this.state.searchTerm)
-    //     // how to get searchTerm to where it can actually be used
-    // }
-
     render(){
-        // console.log('this.state.searchTerm: ', this.state.searchTerm)
         return (
             <NavRow>
                 <div onClick={() => this.props.switchView('home')}>Quarantele<span role="img" aria-label="tv">📺</span></div>

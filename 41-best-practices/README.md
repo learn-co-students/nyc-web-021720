@@ -8,23 +8,24 @@ React Best Practices
 ## Objectives
 
 - Opinions
-  - [ ] Code Organization/file structure 
+  - [X] Code Organization/file structure 
         - Folders: Components & Containers, orrrr organized by resource
-  - [ ] Presentational vs Container components
+  - [X] Presentational vs Container components
+  - [X] Index.js files for cleaner imports
 
 - Optimizations:
-  - [ ] Functional vs Class Components (required for state & lifecycle methods)
-  - [ ] Fragments
+  - [X] Functional vs Class Components (required for state & lifecycle methods)
+  - [X] Fragments
 
 - Best Practices:
-  - [ ] Functional setState
-  - [ ] "then" callback for setState
-  - [ ] Callbacks (avoid useless wrapping)
+  - [X] Callbacks (avoid useless wrapping)
+  - [X] "then" callback for setState
+  - [X] Functional setState
 
 - JS tricks/bugs often seen in React:
-  - [ ] Arrow functions returning objects () => ({ })
-  - [ ] Destructuring  ====> let { likes, name } = this.props
-  - [ ] Spread (w/ prepend and append) this.setState({ messages: [...this.state.messages, 'newmessage']})
+  - [X] Arrow functions returning objects () => ({ })
+  - [X] Destructuring  ====> let { likes, name } = this.props
+  - [X] Spread (w/ prepend and append) this.setState({ messages: [...this.state.messages, 'newmessage']})
   - [ ] Objects with the same key/value name ===> let myPerson = {firstName, lastName}
   - [ ] constructor vs. ES7 instance variables ===> ie state = {}
   - [ ] dynamic keys ==>  { [variable]: "as_key" } 
@@ -36,11 +37,12 @@ React Best Practices
 
 ## Resources
 
-[Dan Abramov: Presentational vs Container](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
-[Pure Components](https://reactjs.org/docs/react-api.html#reactpurecomponent)
-[Redux Code Structure](https://redux.js.org/faq/code-structure)
-[HOCs](https://reactjs.org/docs/higher-order-components.html)
-[Index.js Interfaces](https://alligator.io/react/index-js-public-interfaces/)
+- [Dan Abramov: Presentational vs Container](https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0)
+- [Pure Components](https://reactjs.org/docs/react-api.html#reactpurecomponent)
+- [Redux Code Structure](https://redux.js.org/faq/code-structure)
+- [HOCs](https://reactjs.org/docs/higher-order-components.html)
+- [Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [Index.js Interfaces](https://alligator.io/react/index-js-public-interfaces/)
 
 ## Lecture Notes
 

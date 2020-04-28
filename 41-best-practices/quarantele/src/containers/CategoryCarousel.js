@@ -1,6 +1,6 @@
 import React from 'react';
-import { CarouselContainer, CarouselRow } from './styled';
-import CarouselCard from './CarouselCard';
+import { CarouselContainer, CarouselRow } from '../styled';
+import CarouselCard from '../components/CarouselCard';
 
 class CategoryCarousel extends React.Component {
 
@@ -12,7 +12,14 @@ class CategoryCarousel extends React.Component {
     handleClick = () => {
         let newIndex = this.state.startIndex + 4
 
-        this.setState({ startIndex: this.props.media.length <= newIndex ? 0 : newIndex })
+        // setState taking an object as its argument
+        // this.setState({ startIndex: this.props.media.length <= newIndex ? 0 : newIndex })
+
+        // a function
+        this.setState( prevState => { // argument is the MOST UPDATED VERSION OF STATE 
+            let newIndex = prevState.startIndex + 4
+            return { startIndex: this.props.media.length <= newIndex ? 0 : newIndex }
+        })
     }
 
     render() {

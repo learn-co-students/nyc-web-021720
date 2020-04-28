@@ -1,5 +1,5 @@
 import React from 'react';
-import { CarouselImg, StyledCard } from './styled';
+import { CarouselImg, StyledCard } from '../styled';
 
 const CarouselCard = props => {
     return (
