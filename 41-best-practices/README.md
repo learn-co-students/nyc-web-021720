@@ -26,14 +26,14 @@ React Best Practices
   - [X] Arrow functions returning objects () => ({ })
   - [X] Destructuring  ====> let { likes, name } = this.props
   - [X] Spread (w/ prepend and append) this.setState({ messages: [...this.state.messages, 'newmessage']})
-  - [ ] Objects with the same key/value name ===> let myPerson = {firstName, lastName}
-  - [ ] constructor vs. ES7 instance variables ===> ie state = {}
-  - [ ] dynamic keys ==>  { [variable]: "as_key" } 
+  - [X] Objects with the same key/value name ===> let myPerson = {firstName, lastName}
+  - [X] constructor vs. ES7 instance variables ===> ie state = {}
+  - [X] dynamic keys ==>  { [variable]: "as_key" } 
 
 - Too Involved for RN
-    - [ ] HOCs Magic magic magic!
-    - [ ] Hooks
-    - [ ] Styling (styled-components, sass)
+    - [X] HOCs Magic magic magic!
+    - [X] Hooks
+    - [X] Styling (styled-components, sass)
 
 ## Resources
 
