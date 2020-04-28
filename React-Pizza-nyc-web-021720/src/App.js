@@ -6,10 +6,10 @@ class App extends Component {
 
   state = {
     pizzas: [],
-    topping: '',
-    size: '',
-    vegetarian: '',
-    id: null
+    chosenPizza: {} // {size: 'Small', topping: 'Pepperoni', vegetarian: '(Not) Vegetarian' } 
+    // size: '',
+    // topping: '',
+    // vegetarian: ''
   }
 
   componentDidMount(){
@@ -19,43 +19,64 @@ class App extends Component {
   }
 
   choosePizza = id => {
-    let { topping, size, vegetarian } = this.state.pizzas.find(pizza => pizza.id === id)
-    this.setState({ id, topping, size, vegetarian: vegetarian ? 'Vegetarian' : 'Not Vegetarian' })
+    let chosenPizza = this.state.pizzas.find(pizza => pizza.id === id)
+    // OPTION 2: just pass in the whole pizza object instead 
+    this.setState({ chosenPizza: {...chosenPizza, vegetarian: chosenPizza.vegetarian ? 'Vegetarian' : 'Not Vegetarian'} })
   }
 
   handleFormChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
+    console.log('updating...', e.target.name, ' to: ', e.target.value)
+    // update the chosenPizza object inside of state, only changing the key that is being updated in the form right now. 
+    this.setState({ chosenPizza: {...this.state.chosenPizza, [e.target.name]: e.target.value } })
   }
 
-  handlePizzaPatch = e => {
-    e.preventDefault();
-    const { id, topping, size, vegetarian } = this.state
-    fetch(`http://localhost:3000/pizzas/${id}`, {
-      method: 'PATCH',
+
+  handlePizzaPatch = () => {
+    // PEEP THE SNAZZY REFACTOR AT THE END OF THIS FILE
+    let { id } = this.state.chosenPizza;
+    let fetchOptions = {
+      method: id ? 'PATCH' : 'POST',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json'
       },
-      body: JSON.stringify({topping, size, vegetarian})
-    })
-    .then(res => res.json())
-    .then(pizza => {
-      // we do whaaaat here? 
-      // TODO!!!
-    })
+      body: JSON.stringify({
+        ...this.state.chosenPizza,
+        vegetarian: this.state.chosenPizza.vegetarian === 'Vegetarian'
+      })
+    }
+
+    if (this.state.chosenPizza.id) {
+      fetch(`http://localhost:3000/pizzas/${this.state.chosenPizza.id}`,fetchOptions)
+      .then(res => res.json())
+      .then(newPizza => {
+        let newPizzas = this.state.pizzas.map( pizza => {
+          if(pizza.id === newPizza.id ){
+            return newPizza
+          } else {
+            return pizza
+          }
+        })
+        this.setState({ pizzas: newPizzas, chosenPizza: {} })
+      })
+    } else {
+      fetch(`http://localhost:3000/pizzas`, fetchOptions)
+      .then(res => res.json())
+      .then(newPizza => {
+        this.setState({ pizzas: [...this.state.pizzas, newPizza], chosenPizza: {}  })
+      })
+    }
   }
 
   render() {
-    let { pizzas, topping, size, vegetarian } = this.state;
+    let { pizzas } = this.state;
     return (
       <Fragment>
         <Header/>
         <PizzaForm 
-          topping={topping} 
-          size={size} 
-          vegetarian={vegetarian}
           handlePizzaPatch={this.handlePizzaPatch}
-          handleFormChange={this.handleFormChange}/>
+          handleFormChange={this.handleFormChange}
+          chosenPizza={this.state.chosenPizza}/>
         <PizzaList 
           pizzas={pizzas} 
           choosePizza={this.choosePizza}/>
@@ -65,3 +86,33 @@ class App extends Component {
 }
 
 export default App;
+
+
+// SNAZZY REFACTOR
+// let { id } = this.state.chosenPizza;
+// let fetchOptions = {
+//   method: id ? 'PATCH' : 'POST',
+//   headers: {
+//     'Content-Type': 'application/json',
+//     Accept: 'application/json'
+//   },
+//   body: JSON.stringify({
+//     ...this.state.chosenPizza,
+//     vegetarian: this.state.chosenPizza.vegetarian === 'Vegetarian'
+//   })
+// }
+
+// fetch(`http://localhost:3000/pizzas/${id ? `${id}` : ''}`, fetchOptions)
+//   .then(res => res.json())
+//   .then(newPizza => {
+//     let newPizzas = id 
+//       ? this.state.pizzas.map( pizza => {
+//         if(pizza.id === newPizza.id ){
+//           return newPizza
+//         } else {
+//           return pizza
+//         }
+//       })
+//       : [...this.state.pizzas, newPizza]
+//       this.setState({ pizzas: newPizzas, chosenPizza: {}})
+//   })
