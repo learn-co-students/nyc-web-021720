@@ -7,35 +7,47 @@ React Router
 - [ ] Explain the advantages of using React Router
 - [ ] Utilize the most common `react-router` components to build a SPA: `BrowserRouter`, `Route`, `Switch`, `Link`, and `NavLink`
 - [ ] Use `push` and `history` to navigate pages
+- [ ] Use hooks like `useHistory` to access the state of the router
 - [ ] Create dynamic routes and use `params`
 - [ ] Make the distinction between `state` being one _Single Source of Truth_ and `react-router` being another _Single Source of Truth_
 
 
+### Quarantele Features
+- Quick App Review
+- Quick Update
+    - individual movie view component (MoviePage)
 
-## Movie Review Fullstack 
-### Setup 
-- Run frontend: `npm start` 
-- Run backend: `rails s -p 3001`
+On Screen all Time 
+- Navbar
 
-### Features
-- [MovieApp Wireframe and Component Hierarchy](https://awwapp.com/b/ui0yjws5o/)
-- [ ] Route for login
-- [ ] Route for signup
-- [ ] Route for home page
-- [ ] Enable navbar to move between home/login/signup
-- [ ] Clicking on a movie movies us to `/movies/:id`
-- [ ] Use dynamic route to fetch a display single movie view
+- Routes for...   
+    - home  ==> /home
+    - movies ==> /movies
+    - tv ==> /tv
+    - my watch list ==> /list
+    - sign up  ==> /signup
+    - individual movie view  ==> /play/:id
+
 
 ## Lecture Notes
 - [Example with All of Ze Routes](https://github.com/sbal13/Project_Athena_client/blob/master/src/App.js)
 
 ## SPAs
+localhost:3000
 
 ### Benefits
+- Way too much info all on one page 
+- only one initial load 
 
 
 
 ### Challenges 
+- if the app is huge inital load is LONG AND TERRIBLE
+- can't really track and save individual views (like someone's page on FB)
+- limited customization ==> what links are we going to?
+- can't bookmark anything
+- can't navigate between views 
+- can't share effectively 
 
 
 
