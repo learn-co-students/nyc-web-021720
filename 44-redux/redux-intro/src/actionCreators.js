@@ -1,0 +1,5 @@
+export const likeCreator = () => ({type: 'LIKE'})
+export const dislikeCreator = () => ({type: 'DISLIKE'})
+export const toggleCreator = () => ({type: 'TOGGLE_DARK'})
+export const addTextCreator = () => ({type: 'ADD_TEXT'})
+export const handleChangeCreator = (value) => ({type: 'HANDLE_CHANGE', payload: { value }})

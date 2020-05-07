@@ -60,14 +60,14 @@ Redux **will** test your JavaScript knowledge to the **MAX**!!!
 Message passing is built on the idea of centralization of program flow: all program flows pass through **one** central function, which in turn invokes the desired functionality. In order to do this, the central function needs to be told 2 things: **a type** which tells the central function which function to call, and, because functions sometimes need data, **a payload** which contains all of the data needed to run the desired function (usually an object).
 
 ### Vocabulary
-- [ ] Redux - state management (library) (best) for large programs
-- [ ] store - object that serves as the ultimate source of truth for the app. like a cloud. and has getState and dispatch methods 
-- [ ] reducer - case switch that returns the new version of state 
-- [ ] getState() - current version of the store. READ
-- [ ] dispatch() - a function that takes an arg of an action and calls the reducer (and updates our store)
-- [ ] action - object that has a key of type and maybe payload and determines the reducer behavior
-- [ ] type - command! a string
-- [ ] payload - data! optional
+- [ ] Redux -  
+- [ ] store -  
+- [ ] reducer -  
+- [ ] getState() -  
+- [ ] dispatch() -  
+- [ ] action - 
+- [ ] type -  
+- [ ] payload -  
 
 ### React Redux
 - [ ] mapStateToProps()
@@ -120,6 +120,7 @@ Everytime `dispatch` is called, the `reducer` is called. The 1st argument is the
 
 ### Additional Resources
 - [Redux Thunk Walkthrough](https://alligator.io/redux/redux-thunk/)
+- [Sushi Pre-dux](https://docs.google.com/presentation/d/1vkhvPviGy-HVljw8IiHQRAfFnYbsB80m5zcDYab0SOw/edit?usp=sharing)
 
 
 

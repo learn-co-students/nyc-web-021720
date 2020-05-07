@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import { connect } from 'react-redux';
+import { toggleCreator, likeCreator, dislikeCreator, addTextCreator, handleChangeCreator } from './actionCreators';
 
 
  function random_rgba() {
@@ -7,66 +9,59 @@ import './App.css';
   return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
 }
 
-
-
 class App extends React.Component {
 
-  state = {
-    likes: 0,
-    text: '',
-    darkMode: false,
-    thangs: []
-  }
-
-  like = () => {
-    this.setState({ likes: this.state.likes + 1 })
-  }
-
-  dislike = () => {
-    this.setState({ likes: this.state.likes - 1 })
-  }
-
-  toggle = () => {
-    this.setState({ darkMode: !this.state.darkMode })
-  }
-
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value })
-
-  }
-
-  addText = () => {
-    this.setState({ 
-      text: '',
-      thangs: [this.state.text, ...this.state.thangs]
-    })
-  }
-
   render(){
+    console.log('app props', this.props)
     return (
-      <div className={"App" + (this.state.darkMode ? " dark" : "")}>
-        <button onClick={this.toggle}>Dark mode</button>
-        <h3>{this.state.text}</h3>
+      <div className={"App" + (this.props.darkMode ? " dark" : "")}>
+        <button onClick={() => this.props.toggle()}>Dark mode</button>
+        <h3>{this.props.text}</h3>
         <input 
           name="text" 
-          value={this.state.text} 
-          onChange={(event) => this.handleChange(event)}/>
-        <button onClick={this.addText}>Add!</button>
+          value={this.props.text} 
+          onChange={(event) => this.props.handleChange(event.target.value)}/>
+        <button onClick={() => this.props.addText()}>Add!</button>
 
-        <h4>{this.state.likes} likes</h4>
-        <button onClick={this.dislike}>
+        <h4>{this.props.likes} likes</h4>
+        <button onClick={() => this.props.dislike()}>
           Dislike <span role="img" aria-label="thumbs down">👎</span>
         </button>
-        <button onClick={this.like}>
+        <button onClick={() => this.props.like()}>
           Like<span role="img" aria-label="thumbs up">👍</span>
         </button>
         {
-          this.state.thangs.map((thang, index) => <h1 key={index} >{thang}</h1>)
+          this.props.allText.map((thang, index) => <h1 key={index} >{thang}</h1>)
         }
       </div>
     );
   }
 }
 
+const mapStateToProps = (state) => {
+  // let hasManagerialAccess = state.user.type === 3
 
-export default App;
+  return {
+    // isManager: hasManagerialAccess,
+    likes: state.likes,
+    darkMode: state.darkMode,
+    text: state.text,
+    allText: state.thangs
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  // console.log('dos:', dispatch)
+  return {
+    like: () => dispatch(likeCreator()),
+    dislike: () => dispatch(dislikeCreator()),
+    toggle: () => dispatch(toggleCreator()),
+    handleChange: (value) => dispatch(handleChangeCreator(value)), 
+    addText: () => dispatch(addTextCreator())
+  }
+
+  
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
