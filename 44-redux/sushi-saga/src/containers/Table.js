@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { connect } from 'react-redux';
 
 const Table = (props) => {
 
@@ -22,4 +23,11 @@ const Table = (props) => {
   )
 }
 
-export default Table
+const msp = state => {
+  return {
+    eatenSushis: state.eatenSushis,
+    budget: state.budget
+  }
+}
+
+export default connect(msp)(Table)
