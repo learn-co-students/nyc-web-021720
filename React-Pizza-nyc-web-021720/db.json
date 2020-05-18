@@ -14,7 +14,7 @@
     },
     {
       "id": 3,
-      "topping": "Mushroom",
+      "topping": "Mushrooms",
       "size": "Large",
       "vegetarian": true
     },
@@ -38,7 +38,7 @@
     },
     {
       "id": 7,
-      "topping": "Green Olive",
+      "topping": "Green Olives",
       "size": "Small",
       "vegetarian": true
     },
@@ -71,6 +71,12 @@
       "vegetarian": false,
       "size": "Medium",
       "id": 12
+    },
+    {
+      "size": "Large",
+      "topping": "Hawaiian",
+      "vegetarian": false,
+      "id": 13
     }
   ]
 }

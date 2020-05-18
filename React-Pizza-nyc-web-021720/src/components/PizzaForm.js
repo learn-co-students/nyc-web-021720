@@ -4,17 +4,17 @@ const PizzaForm = props => {
   const { 
     handleFormChange, 
     handlePizzaPatch, 
-    chosenPizza: {id, topping, size, vegetarian} 
+    id, topping, size, vegetarian
   } = props;
 
 
   return(
       <div className="form-row">
         <div className="col-5">
-            <input type="text" onChange={handleFormChange} className="form-control" placeholder="Pizza Topping" value={topping ? topping : ''} name="topping"/>
+            <input type="text" onChange={handleFormChange} className="form-control" placeholder="Pizza Topping" value={topping} name="topping"/>
         </div>
         <div className="col">
-          <select value={size ? size : ''} className="form-control" onChange={handleFormChange} name="size">
+          <select value={size} className="form-control" onChange={handleFormChange} name="size">
             <option value="Small">Small</option> 
             <option value="Medium">Medium</option>
             <option value="Large">Large</option>

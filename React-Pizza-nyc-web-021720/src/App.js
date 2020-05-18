@@ -6,10 +6,10 @@ class App extends Component {
 
   state = {
     pizzas: [],
-    chosenPizza: {} // {size: 'Small', topping: 'Pepperoni', vegetarian: '(Not) Vegetarian' } 
-    // size: '',
-    // topping: '',
-    // vegetarian: ''
+    id: null,
+    size: '',
+    topping: '',
+    vegetarian: ''
   }
 
   componentDidMount(){
@@ -20,20 +20,19 @@ class App extends Component {
 
   choosePizza = id => {
     let chosenPizza = this.state.pizzas.find(pizza => pizza.id === id)
-    // OPTION 2: just pass in the whole pizza object instead 
-    this.setState({ chosenPizza: {...chosenPizza, vegetarian: chosenPizza.vegetarian ? 'Vegetarian' : 'Not Vegetarian'} })
+    let { size, topping, vegetarian } = chosenPizza
+    this.setState({ id, size, topping, vegetarian: vegetarian ? 'Vegetarian' : 'Not Vegetarian'} )
   }
 
   handleFormChange = e => {
     console.log('updating...', e.target.name, ' to: ', e.target.value)
-    // update the chosenPizza object inside of state, only changing the key that is being updated in the form right now. 
-    this.setState({ chosenPizza: {...this.state.chosenPizza, [e.target.name]: e.target.value } })
+    this.setState({ [e.target.name]: e.target.value })
   }
 
 
   handlePizzaPatch = () => {
     // PEEP THE SNAZZY REFACTOR AT THE END OF THIS FILE
-    let { id } = this.state.chosenPizza;
+    let { id, topping, vegetarian, size } = this.state;
     let fetchOptions = {
       method: id ? 'PATCH' : 'POST',
       headers: {
@@ -41,13 +40,14 @@ class App extends Component {
         Accept: 'application/json'
       },
       body: JSON.stringify({
-        ...this.state.chosenPizza,
-        vegetarian: this.state.chosenPizza.vegetarian === 'Vegetarian'
+        size, 
+        topping,
+        vegetarian: vegetarian === 'Vegetarian'
       })
     }
 
-    if (this.state.chosenPizza.id) {
-      fetch(`http://localhost:3000/pizzas/${this.state.chosenPizza.id}`,fetchOptions)
+    if (id) {
+      fetch(`http://localhost:3000/pizzas/${id}`,fetchOptions)
       .then(res => res.json())
       .then(newPizza => {
         let newPizzas = this.state.pizzas.map( pizza => {
@@ -57,26 +57,30 @@ class App extends Component {
             return pizza
           }
         })
-        this.setState({ pizzas: newPizzas, chosenPizza: {} })
+        this.setState({ pizzas: newPizzas, id: null, topping: '', size: '', vegetarian: '' })
       })
     } else {
       fetch(`http://localhost:3000/pizzas`, fetchOptions)
       .then(res => res.json())
       .then(newPizza => {
-        this.setState({ pizzas: [...this.state.pizzas, newPizza], chosenPizza: {}  })
+        this.setState({ pizzas: [...this.state.pizzas, newPizza], id: null, topping: '', size: '', vegetarian: '' })
       })
     }
   }
 
   render() {
-    let { pizzas } = this.state;
+    let { pizzas, id, topping, size, vegetarian } = this.state;
+    console.log(this.state)
     return (
       <Fragment>
         <Header/>
         <PizzaForm 
           handlePizzaPatch={this.handlePizzaPatch}
           handleFormChange={this.handleFormChange}
-          chosenPizza={this.state.chosenPizza}/>
+          id={id}
+          topping={topping}
+          size={size}
+          vegetarian={vegetarian}/>
         <PizzaList 
           pizzas={pizzas} 
           choosePizza={this.choosePizza}/>
